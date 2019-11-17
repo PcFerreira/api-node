@@ -1,7 +1,25 @@
 version: '3'
+
 services:
+
+  mongo_api:
+    image: mongo:4.2.1
+    container_name: "mongo_api"
+    hostname: mongo_db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+      MONGO_INITDB_DATABASE: DB_todo
+    restart: on-failure
+    volumes:
+      - ./database/data:/data/db
+
   backend_api:
     build: ./app
     container_name: "backend_api"
     ports:
       - "3000:3000"
+    depends_on:
+      - mongo_api
+    links:
+      - mongo_api
