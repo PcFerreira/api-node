@@ -1,12 +1,12 @@
 const {mongo} = require('../config/database');
 
-class TaskController{
+class CreateController{
     Create(req, res){
         const {name, description, date, type, done} = req.body;
 
         //TODO make this better
         if(!name || !date){
-            res.status(400).json({'error': 'Você precisa preencher todos os campos obrigatórios!'});
+          return res.status(400).json({'error': 'Você precisa preencher todos os campos obrigatórios!'});
         }
 
         mongo.collection('task').insertOne({
@@ -22,6 +22,7 @@ class TaskController{
             res.status(400).json({'error': error.message})
         })
     }
+
 }
 
-module.exports = new TaskController();
+module.exports = new CreateController();

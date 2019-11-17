@@ -16,7 +16,7 @@ app.use(express.json());
 //adding controllers
 const HomeController = require('./controllers/HomeController.js');
 const CreateController = require('./controllers/CreateController.js');
-
+const ListController = require('./controllers/ListController.js');
 
 //adding routes
 
@@ -28,3 +28,8 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //Create Route
 app.post('/create', CreateController.Create);
+
+//List All Route
+app.get('/list', ListController.List);
+//List by id
+app.get('/list/:id', ListController.ListById);
