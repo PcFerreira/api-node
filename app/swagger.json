@@ -14,52 +14,28 @@
   },
   "host" : "https://github.com/PcFerreira/api-node",
   "basePath" : "",
-  "tags" : [ {
-    "name" : "main",
-    "description" : ""
-  } ],
   "schemes" : [ "https" ],
   "paths" : {
-    "/inventory" : {
-      "get" : {
-        "tags" : [ "main" ],
-        "summary" : "searches inventory",
-        "description" : "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
-        "operationId" : "searchInventory",
-        "produces" : [ "application/json" ],
-        "parameters" : [ {
-          "name" : "searchString",
+    "/create" : {
+      "post": {
+        "description":"",
+        "parameters": [{
+          "name" : "title",
           "in" : "query",
-          "description" : "pass an optional search string for looking up inventory",
+          "description" : "title of the activity",
+          "required" : true,
+          "type" : "string"
+        },
+        {
+          "name" : "description",
+          "in" : "query",
+          "description": "description of the activity",
           "required" : false,
           "type" : "string"
-        }, {
-          "name" : "skip",
-          "in" : "query",
-          "description" : "number of records to skip for pagination",
-          "required" : false,
-          "type" : "integer",
-          "minimum" : 0,
-          "format" : "int32"
-        }, {
-          "name" : "limit",
-          "in" : "query",
-          "description" : "maximum number of records to return",
-          "required" : false,
-          "type" : "integer",
-          "maximum" : 50,
-          "minimum" : 0,
-          "format" : "int32"
-        } ],
-        "responses" : {
-          "200" : {
-            "description" : "search results matching criteria",
-            "schema" : {
-              "type" : "array"
-            }
-          },
-          "400" : {
-            "description" : "bad input parameter"
+        }],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
