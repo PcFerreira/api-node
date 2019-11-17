@@ -31,6 +31,7 @@ Inicie o servidor com o comando:
 ```bash
 npm start
 ```
+Pronto! Agora so acessar http://localhost:3000
 
 ## Feito com
 
