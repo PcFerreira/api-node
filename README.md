@@ -1,8 +1,6 @@
 TO DO API
 ============
 
-Sub-Título do Projeto/Pequena descrição do contexto.
-
 ## Começando
 
 Clone o projeto
