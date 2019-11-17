@@ -12,26 +12,21 @@
       "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
     }
   },
-  "host" : "https://github.com/PcFerreira/api-node",
-  "basePath" : "",
+  "host" : "localhost:3000",
+  "basePath" : "/",
   "schemes" : [ "https" ],
   "paths" : {
     "/create" : {
       "post": {
         "description":"",
-        "parameters": [{
-          "name" : "title",
-          "in" : "query",
-          "description" : "title of the activity",
-          "required" : true,
-          "type" : "string"
-        },
+        "parameters": [
         {
-          "name" : "description",
-          "in" : "query",
-          "description": "description of the activity",
-          "required" : false,
-          "type" : "string"
+          "name" : "body",
+          "in" :"body",
+          "description" : "Activity object that needs to be added",
+          "required" : true,
+          "type" : "string",
+          "example" :"{\r\n    \"name\" : \"String\",\r\n    \"description\" : \"String\",\r\n    \"date\" : \"2019-11-17T15:15:00.511Z\",\r\n    \"type\" : \"String\"\r\n    \"done\" : true\r\n }"
         }],
         "responses": {
           "200": {
